@@ -1,0 +1,26 @@
+{
+  "name": "stream_app_backend",
+  "version": "1.0.0",
+  "description": "Streaming Application Backend",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/withniyaz/Stream-Backend.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/withniyaz/Stream-Backend/issues"
+  },
+  "homepage": "https://github.com/withniyaz/Stream-Backend#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.18.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.20"
+  }
+}
