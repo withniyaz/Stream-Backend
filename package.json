@@ -2,10 +2,13 @@
   "name": "stream_app_backend",
   "version": "1.0.0",
   "description": "Streaming Application Backend",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
+    "start": "NODE_ENV=production node server",
+    "dev": "NODE_ENV=development nodemon server",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "type": "module",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/withniyaz/Stream-Backend.git"
@@ -17,8 +20,18 @@
   },
   "homepage": "https://github.com/withniyaz/Stream-Backend#readme",
   "dependencies": {
+    "bcryptjs": "^2.4.3",
     "cors": "^2.8.5",
-    "express": "^4.18.2"
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "firebase": "^9.15.0",
+    "firebase-admin": "^11.3.0",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^6.8.1",
+    "morgan": "^1.10.0",
+    "multer": "^1.4.5-lts.1",
+    "nanoid": "^4.0.0",
+    "node-media-server": "^2.4.9"
   },
   "devDependencies": {
     "nodemon": "^2.0.20"
