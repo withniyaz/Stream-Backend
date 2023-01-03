@@ -1,6 +1,8 @@
 import express from "express";
 import multer from "multer";
 import * as streamController from "../controllers/stream.controller.js";
+import protect from "../middlewares/auth.middleware.js";
+
 /**
  * @route  Stream Route
  * @desc   Route used to create new stream
@@ -17,10 +19,11 @@ const upload = multer({
   },
 });
 
-streamRouter.route("/").get(streamController.allStream);
 streamRouter
   .route("/create")
-  .post(upload.single("thumbnail"), streamController.createStream);
+  .post(protect, upload.single("thumbnail"), streamController.createStream);
 streamRouter.route("/verify").post(streamController.verifyStream);
+streamRouter.route("/:id").put(streamController.updateStreamById);
+streamRouter.route("/").get(protect, streamController.allStream);
 
 export default streamRouter;
