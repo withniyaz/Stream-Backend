@@ -38,7 +38,9 @@ const nmsConfig = {
 };
 
 // Load env vars
-dotenv.config({ path: ".env" });
+dotenv.config({
+  path: config.NODE_ENV === "production" ? ".env.production" : ".env",
+});
 
 // Connect to database
 connectDB();
@@ -119,6 +121,7 @@ nms.on("donePublish", (id, args) => {
 app.use(errorMiddleware);
 
 const PORT = config.PORT;
+const SECUREPORT = config.SECUREPORT;
 
 // HTTP Server
 const httpServer = http.createServer(app);
@@ -126,6 +129,16 @@ const server = httpServer.listen(
   PORT,
   console.info(`Server running in ${config.NODE_ENV} mode on port ${PORT}`)
 );
+
+const httpsServer = https.createServer(app);
+if (config.NODE_ENV === "production") {
+  const secureServer = httpsServer.listen(
+    SECUREPORT,
+    console.info(
+      `Secure Server running in ${config.NODE_ENV} mode on port ${SECUREPORT}`
+    )
+  );
+}
 
 //Socket
 const io = new Server(httpServer, { cors: { origin: "*" } });

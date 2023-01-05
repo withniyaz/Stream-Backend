@@ -21,6 +21,7 @@ const {
   APP_ID,
   MEASUREMENT_ID,
   MONGO_URL,
+  SECUREPORT,
 } = process.env;
 
 assert(PORT, "PORT is required");
@@ -28,6 +29,7 @@ assert(PORT, "PORT is required");
 export default {
   NODE_ENV: NODE_ENV,
   PORT: PORT,
+  SECUREPORT: SECUREPORT,
   NMSPORT: NMSPORT,
   HOST: HOST,
   RMTPPORT: RMTPPORT,
