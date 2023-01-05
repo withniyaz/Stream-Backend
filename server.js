@@ -39,7 +39,7 @@ const nmsConfig = {
 
 // Load env vars
 dotenv.config({
-  path: config.NODE_ENV === "production" ? ".env.production" : ".env",
+  path: process.env.NODE_ENV === "production" ? ".env.production" : ".env",
 });
 
 // Connect to database

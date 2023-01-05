@@ -2,7 +2,7 @@
 import dotenv from "dotenv";
 import assert from "assert";
 
-dotenv.config({ path: "./.env" });
+dotenv.config({ path: process.env.NODE_ENV ? "./.env.production" : "./.env" });
 
 const {
   NODE_ENV,
