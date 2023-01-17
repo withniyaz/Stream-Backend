@@ -149,7 +149,10 @@ io.on("connection", (socket) => {
     console.log("New Client Joined Stream", room);
     socket.join(room);
     const users = io.sockets.adapter.rooms.get(room)?.size;
-    streamController.updateStream(room, { count: users ?? 0 });
+    if (users > 1) {
+      streamController.updateStream(room, { count: users ?? 0 });
+      io.to(`${room}`).emit("count", stream);
+    }
   });
 });
 
